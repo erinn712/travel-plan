@@ -76,28 +76,29 @@
         </v-carousel>
       </v-container>
       <!-- 主題懶人包 -->
-      <v-container  class="mx-auto"  max-width="500">
-        <h2>主題懶人包</h2>
+      <v-container class="mx-auto" max-width="500">
         <v-container fluid>
-        <v-row dense>
-          <v-col v-for="card in topicCards" :key="card.title" :col="card.flex">
-            <v-card
-              hover
-              href="#"
+          <h2>主題懶人包</h2>
+          <v-row dense>
+            <v-col
+              v-for="card in topicCards"
+              :key="card.title"
+              :cols="card.flex"
             >
-            <v-img :src="card.img" class="img-height" cover>
-              <v-card-title>{{ card.title }}</v-card-title>
-              <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
-              </v-img>
-            </v-card>
-          </v-col>
-        </v-row>
+              <v-card hover href="#">
+                <v-img :src="card.img" class="img-height" cover>
+                  <v-card-title>{{ card.title }}</v-card-title>
+                  <v-card-subtitle>{{ card.subtitle }}</v-card-subtitle>
+                </v-img>
+              </v-card>
+            </v-col>
+          </v-row>
         </v-container>
       </v-container>
       <!-- 熱門景點 -->
-      <v-container class="mx-auto"  max-width="500">
-        <h2>熱門景點</h2>
+      <v-container class="mx-auto" max-width="500">
         <v-container fluid>
+          <h2>熱門景點</h2>
           <v-row dense>
             <v-col
               v-for="card in hotPlaces"
@@ -124,20 +125,16 @@
 
       <!-- 推薦行程 -->
       <v-container class="mx-auto" max-width="500">
-        <h2>推薦行程</h2>
         <v-container fluid>
+          <h2>推薦行程</h2>
           <v-row dense>
             <v-col
               v-for="card in scheduleCards"
               :key="card.title"
-              :col="card.flex"
+              :cols="card.flex"
             >
               <v-card hover href="#">
-                <v-img
-                  :src="card.img"
-                  class="text-right pa-2 img-height"
-                  cover
-                >
+                <v-img :src="card.img" class="text-right pa-2 img-height" cover>
                   <v-btn
                     :icon="isSelected ? 'mdi-heart' : 'mdi-heart-outline'"
                   ></v-btn>
@@ -195,7 +192,7 @@
 
 <script>
 export default {
-  name: 'HomeView',
+  name: "HomeView",
 
   data: () => ({
     // explore選單
@@ -274,32 +271,28 @@ export default {
       {
         title: "IG打卡景點",
         subtitle: "看看IG紅什麼，還不來打卡？",
-        img:
-          "https://static.wixstatic.com/media/d44a48_3bd1e1d55f434ed1b10b0976c343e576~mv2.jpeg/v1/fill/w_560,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/fullsizeoutput_2c8b.jpeg",
+        img: "https://static.wixstatic.com/media/d44a48_3bd1e1d55f434ed1b10b0976c343e576~mv2.jpeg/v1/fill/w_560,h_404,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/fullsizeoutput_2c8b.jpeg",
         href: "",
         flex: 2.5,
       },
       {
         title: "悠遊散策",
         subtitle: "沉浸在懷舊氛圍，讓走路不再乏味",
-        img:
-          "https://img.poibank.com/i-MT9vGn4BZ-JrwrtFm_qnaah4M=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvMzcyMjUvZDZiZjUzNWYtMTgxMS00YmY2LTkzNDUtOTZkNDA3Njc5NDMxIn0seyJyZXNpemUiOnsid2lkdGgiOiI4MDAifX1d",
+        img: "https://img.poibank.com/i-MT9vGn4BZ-JrwrtFm_qnaah4M=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvMzcyMjUvZDZiZjUzNWYtMTgxMS00YmY2LTkzNDUtOTZkNDA3Njc5NDMxIn0seyJyZXNpemUiOnsid2lkdGgiOiI4MDAifX1d",
         href: "",
         flex: 2.5,
       },
       {
         title: "秘境攻略",
         subtitle: "帶你體驗擁有迷人魅力的秘境",
-        img:
-          "https://img.poibank.com/jTWo_mcCP6lCjS8ZN2s06ka-fHE=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvODA0OTIvZjE3NDEzZDItZGMxZS00YTJkLWE4MjEtN2JmMmE5MzcxNzExIn0seyJyZXNpemUiOnsid2lkdGgiOiI4MDAifX1d",
+        img: "https://img.poibank.com/jTWo_mcCP6lCjS8ZN2s06ka-fHE=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvODA0OTIvZjE3NDEzZDItZGMxZS00YTJkLWE4MjEtN2JmMmE5MzcxNzExIn0seyJyZXNpemUiOnsid2lkdGgiOiI4MDAifX1d",
         href: "",
         flex: 2.5,
       },
       {
         title: "國外自由行",
         subtitle: "給你最完整的自由行攻略！",
-        img:
-          "https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/09/kyototravel_pixta_82350195_L_eyecatch.jpg.webp",
+        img: "https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/09/kyototravel_pixta_82350195_L_eyecatch.jpg.webp",
         href: "",
         flex: 2.5,
       },
