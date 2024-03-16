@@ -1,10 +1,10 @@
 <script>
 import { ref } from 'vue'
 export default {
-  name: "user",
+  name: "login",
   setup () {
-    const userPage = ref(`<h1>name</h1>`)
-    return { userPage }
+    const login = ref(`<h1>login</h1>`)
+    return { login }
   },
 }
 </script>

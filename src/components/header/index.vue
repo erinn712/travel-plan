@@ -39,7 +39,7 @@
       <template v-slot:append>
         <v-btn> 我的追蹤 </v-btn>
         <v-btn> 開始規劃 </v-btn>
-        <v-btn color="red-lighten-3" href="/login"> 登入/註冊 </v-btn>
+        <v-btn color="red-lighten-3" @click="redirectToLoginOrRegister"> 登入/註冊 </v-btn>
         <v-btn icon="mdi-heart" color="red-accent-2"></v-btn>
         <v-text-field
           v-model="search"
@@ -92,8 +92,13 @@ export default {
         ],
       }
     ])
+    const redirectPath = ref('');
+    const redirectToLoginOrRegister = () => {
+      redirectPath.value = '/login';
+    }
     return {
-      exploreList
+      exploreList,
+      redirectToLoginOrRegister
     }
   },
 }

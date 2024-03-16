@@ -1,34 +1,25 @@
 <template>
   <v-container class="mx-auto" max-width="500">
-        <v-container fluid>
-          <h2>熱門景點</h2>
-          <v-row dense>
-            <v-col
-              v-for="card in placesCards"
-              :key="card.title"
-              :cols="card.flex"
-            >
-              <v-card hover>
-                <v-img
-                  :src="card.img"
-                  class="align-end img-height"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  cover
-                >
-                  <v-card-title
-                    class="text-white"
-                    v-text="card.title"
-                  ></v-card-title>
-                </v-img>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-container>
+    <h2>熱門景點</h2>
+    <v-row dense>
+      <v-col v-for="card in placesCards" :key="card.title" :cols="card.flex">
+        <v-card hover>
+          <v-img
+            :src="card.img"
+            class="align-end img-height"
+            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+            cover
+          >
+            <v-card-title class="text-white" v-text="card.title"></v-card-title>
+          </v-img>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export default {
   name: "PlacesCards",
@@ -52,10 +43,10 @@ export default {
         href: "",
         flex: 4,
       },
-    ])
+    ]);
     return {
-      placesCards
-    }
-  }
-}
+      placesCards,
+    };
+  },
+};
 </script>

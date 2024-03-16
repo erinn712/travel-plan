@@ -1,6 +1,5 @@
 <template>
   <v-container class="mx-auto" max-width="500">
-    <v-container fluid>
       <h2>推薦行程</h2>
       <v-row dense>
         <v-col
@@ -21,7 +20,6 @@
           </v-card>
         </v-col>
       </v-row>
-    </v-container>
   </v-container>
 </template>
 

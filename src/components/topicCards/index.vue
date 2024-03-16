@@ -1,36 +1,28 @@
 <template>
   <v-container class="mx-auto" max-width="500">
-        <v-container fluid>
-          <h2>主題懶人包</h2>
-          <v-row dense>
-            <v-col
-              v-for="card in topicCards"
-              :key="card.title"
-              :cols="card.flex"
-            >
-              <v-card hover href="#">
-                <v-img
-                  :src="card.img"
-                  class="img-height"
-                  cover
-                  gradient="to bottom, rgba(0,0,0,.5), rgba(0,0,0,.1)"
-                >
-                  <v-card-title class="text-white">{{
-                    card.title
-                  }}</v-card-title>
-                  <v-card-subtitle class="text-white">{{
-                    card.subtitle
-                  }}</v-card-subtitle>
-                </v-img>
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-container>
+    <h2>主題懶人包</h2>
+    <v-row dense>
+      <v-col v-for="card in topicCards" :key="card.title" :cols="card.flex">
+        <v-card hover href="#">
+          <v-img
+            :src="card.img"
+            class="img-height"
+            cover
+            gradient="to bottom, rgba(0,0,0,.5), rgba(0,0,0,.1)"
+          >
+            <v-card-title class="text-white">{{ card.title }}</v-card-title>
+            <v-card-subtitle class="text-white">{{
+              card.subtitle
+            }}</v-card-subtitle>
+          </v-img>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export default {
   name: "TopicCards",
@@ -70,12 +62,12 @@ export default {
         img: "https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/09/kyototravel_pixta_82350195_L_eyecatch.jpg.webp",
         href: "",
         flex: 2.5,
-      }
-    ])
+      },
+    ]);
 
     return {
-      topicCards
-    }
-  }
-}
+      topicCards,
+    };
+  },
+};
 </script>
