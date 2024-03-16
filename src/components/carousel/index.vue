@@ -1,5 +1,4 @@
 <template>
-  <v-container>
         <v-carousel
           class="carousel"
           show-arrows="hover"
@@ -21,7 +20,6 @@
             </a>
           </v-carousel-item>
         </v-carousel>
-      </v-container>
 </template>
 
 <script>
