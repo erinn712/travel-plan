@@ -2,8 +2,7 @@
   "header": {
     "title": "就是愛玩樂",
     "explore": "探索",
-    "login": "登入",
-    "register": "註冊",
+    "login": "登入 / 註冊",
     "myFollowing": "我的追蹤",
     "startPlanning": "開始規劃"
   },
@@ -37,5 +36,12 @@
   },
   "recommendCards": {
     "title": "推薦行程"
+  },
+  "loginForm": {
+    "title": "登入你的帳戶",
+    "signIn": "登入",
+    "signUp": "註冊",
+    "username": "帳號",
+    "password": "密碼"
   }
 }

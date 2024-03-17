@@ -37,11 +37,61 @@
       {{ t("header.title") }}</v-app-bar-title
     >
     <template v-slot:append>
-      <v-btn>  {{ t("header.myFollowing") }} </v-btn>
+      <v-btn> {{ t("header.myFollowing") }} </v-btn>
       <v-btn> {{ t("header.startPlanning") }} </v-btn>
-      <v-btn color="red-lighten-3" @click="redirectToLoginOrRegister">
-        {{ t("header.login") }} / {{ t("header.register") }}
-      </v-btn>
+      <!-- 註冊按鈕 -->
+      <v-dialog max-width="500" transition="dialog-top-transition">
+        <template v-slot:activator="{ props: activatorProps }">
+          <v-btn
+            v-bind="activatorProps"
+            color="red-lighten-3"
+            :text="t('header.login')"
+          ></v-btn>
+        </template>
+        <!-- 登入表單 -->
+        <template v-slot:default="{ isActive }">
+          <v-card
+            class="text-center pa-10"
+            color="grey-lighten-5"
+            :title="t('loginForm.title')"
+          >
+            <v-form fast-fail @submit.prevent>
+              <v-text-field
+                class="mt-4"
+                v-model="username"
+                :rules="firstNameRules"
+                :label="t('loginForm.username')"
+                variant="outlined"
+                color="teal-darken-3"
+              ></v-text-field>
+
+              <v-text-field
+                class="mt-4"
+                v-model="password"
+                :rules="lastNameRules"
+                :label="t('loginForm.password')"
+                variant="outlined"
+                color="teal-darken-3"
+              ></v-text-field>
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-text>忘記密碼</v-text>
+              </v-card-actions>
+              <v-card-actions>
+                <v-btn
+                  class="mx-auto"
+                  variant="outlined"
+                  color="teal-darken-4"
+                  type="submit"
+                  @click="isActive.value = false"
+                  >{{ t("loginForm.signIn") }}</v-btn
+                >
+              </v-card-actions>
+            </v-form>
+          </v-card>
+        </template>
+      </v-dialog>
+
       <!-- 語言切換 -->
       <select v-model="locale">
         <option value="zh-TW">中文</option>
@@ -103,6 +153,8 @@ export default {
       },
     ]);
 
+    const dialog = ref(false);
+
     const { t, locale } = useI18n();
 
     watch(locale, (newlocale) => {
@@ -110,6 +162,7 @@ export default {
     });
     return {
       exploreList,
+      dialog,
       t,
       locale,
     };

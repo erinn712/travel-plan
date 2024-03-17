@@ -2,8 +2,7 @@
   "header": {
     "title": "LOVE TRAVELING",
     "explore": "EXPLORE",
-    "login": "SIGN IN",
-    "register": "UP",
+    "login": "SIGN IN / UP",
     "myFollowing": "My Following",
     "startPlanning": "Start Planning"
   },
@@ -23,7 +22,7 @@
   },
   "topicMenu": {
     "title": "必吃美食",
-    "enjoyTheFood":"必吃美食",
+    "enjoyTheFood": "必吃美食",
     "IGCheckInStop": "IG打卡景點",
     "takeAStroll": "悠遊散策",
     "secretPlaceTour": "秘境攻略",
@@ -37,5 +36,12 @@
   },
   "recommendCards": {
     "title": "Recommend Itineraries"
+  },
+  "loginForm": {
+    "title": "Log in to your account",
+    "signIn": "Sign In",
+    "signUp": "Sign UP",
+    "username": "Username",
+    "password": "Password"
   }
 }
