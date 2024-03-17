@@ -7,13 +7,14 @@
             探索</v-btn
           >
         </template>
-        <v-list v-model="menuOpen">
+        <v-list v-model:opened="open">
           <!-- 熱門城市選單 -->
           <v-list-group
             v-for="(group, i) in exploreList"
             :key="i"
             :title="group.title"
             :value="group.title"
+
           >
             <template v-slot:activator="{ props }">
               <v-list-item
@@ -92,16 +93,12 @@ export default {
         ],
       }
     ])
-
-    const menuOpen = ref(false);
-
     const redirectPath = ref('');
     const redirectToLoginOrRegister = () => {
       redirectPath.value = '/login';
     }
     return {
       exploreList,
-      menuOpen,
       redirectToLoginOrRegister
     }
   },
