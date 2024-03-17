@@ -1,6 +1,6 @@
 <template>
   <v-container class="mx-auto" max-width="500">
-      <h2>推薦行程</h2>
+      <h2>{{t("recommendCards.title")}}</h2>
       <v-row dense>
         <v-col
           v-for="card in recommendCards"
@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 export default {
   name: "RecommendCards",
@@ -52,8 +53,17 @@ export default {
         flex: 4,
       },
     ]);
+
+    const { t, locale } = useI18n();
+
+    watch(locale, (newlocale) => {
+      localStorage.setItem("locale", newlocale);
+    });
+
     return {
-      recommendCards
+      recommendCards,
+      t,
+      locale
     }
   },
 };

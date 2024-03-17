@@ -1,0 +1,41 @@
+{
+  "header": {
+    "title": "LOVE TRAVELING",
+    "explore": "EXPLORE",
+    "login": "SIGN IN",
+    "register": "UP",
+    "myFollowing": "My Following",
+    "startPlanning": "Start Planning"
+  },
+  "cityMenu": {
+    "title": "Popular City",
+    "tainan": "Tainan",
+    "hualien": "Hualien",
+    "seoul": "Seoul",
+    "tokyo": "Tokyo",
+    "bangkok": "Bangkok"
+  },
+  "recommendMenu": {
+    "title": "Recommend Itineraries",
+    "one-dayTrip": "一日輕旅行",
+    "in-depthTravel": "三天兩夜深度遊",
+    "foreignTravel": "國外旅遊"
+  },
+  "topicMenu": {
+    "title": "必吃美食",
+    "enjoyTheFood":"必吃美食",
+    "IGCheckInStop": "IG打卡景點",
+    "takeAStroll": "悠遊散策",
+    "secretPlaceTour": "秘境攻略",
+    "foreignFreeTravel": "國外自由行"
+  },
+  "topicCard": {
+    "title": "Topic For Dummies"
+  },
+  "placesCard": {
+    "title": "Popular attractions"
+  },
+  "recommendCards": {
+    "title": "Recommend Itineraries"
+  }
+}

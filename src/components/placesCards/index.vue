@@ -1,6 +1,6 @@
 <template>
   <v-container class="mx-auto" max-width="500">
-    <h2>熱門景點</h2>
+    <h2>{{ t("placesCard.title") }}</h2>
     <v-row dense>
       <v-col v-for="card in placesCards" :key="card.title" :cols="card.flex">
         <v-card hover>
@@ -19,7 +19,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 export default {
   name: "PlacesCards",
@@ -44,8 +45,14 @@ export default {
         flex: 4,
       },
     ]);
+    const { t, locale } = useI18n();
+    watch(locale, (newlocale) => {
+      localStorage.setItem("locale", newlocale);
+    });
     return {
       placesCards,
+      t,
+      locale,
     };
   },
 };

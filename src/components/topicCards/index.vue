@@ -1,6 +1,6 @@
 <template>
   <v-container class="mx-auto" max-width="500">
-    <h2>主題懶人包</h2>
+    <h2>{{ t("topicCard.title") }}</h2>
     <v-row dense>
       <v-col v-for="card in topicCards" :key="card.title" :cols="card.flex">
         <v-card hover href="#">
@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
 
 export default {
   name: "TopicCards",
@@ -65,8 +66,16 @@ export default {
       },
     ]);
 
+    const { t, locale } = useI18n();
+
+    watch(locale, (newlocale) => {
+      localStorage.setItem("locale", newlocale);
+    });
+
     return {
       topicCards,
+      t,
+      locale
     };
   },
 };
