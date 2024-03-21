@@ -116,15 +116,16 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { reactive, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
   name: "HeaderMenu",
   setup () {
-    const exploreList = ref([
+    const { t, locale } = useI18n();
+    const exploreList = reactive([
       {
-        title: "熱門城市",
+        title: t("cityMenu.title"),
         subtitle: [
           ["台南", "mdi-account-multiple-outline"],
           ["花蓮", "mdi-cog-outline"],
@@ -142,7 +143,7 @@ export default {
         ],
       },
       {
-        title: "主題懶人包",
+        title: t("topicMenu.title"),
         subtitle: [
           ["必吃美食", "mdi-account-multiple-outline"],
           ["IG打卡景點", "mdi-cog-outline"],
@@ -154,8 +155,6 @@ export default {
     ]);
 
     const dialog = ref(false);
-
-    const { t, locale } = useI18n();
 
     watch(locale, (newlocale) => {
       localStorage.setItem("locale", newlocale);

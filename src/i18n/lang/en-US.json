@@ -16,17 +16,17 @@
   },
   "recommendMenu": {
     "title": "Recommend Itineraries",
-    "one-dayTrip": "一日輕旅行",
-    "in-depthTravel": "三天兩夜深度遊",
-    "foreignTravel": "國外旅遊"
+    "one-dayTrip": "One-day Trip",
+    "in-depthTravel": "In-depth Travel",
+    "foreignTravel": "Foreign Travel"
   },
   "topicMenu": {
-    "title": "必吃美食",
-    "enjoyTheFood": "必吃美食",
-    "IGCheckInStop": "IG打卡景點",
-    "takeAStroll": "悠遊散策",
-    "secretPlaceTour": "秘境攻略",
-    "foreignFreeTravel": "國外自由行"
+    "title": "Topic For Dummies",
+    "enjoyTheFood": "Enjoy The Food",
+    "IGCheckInStop": "IG Check In Stop",
+    "takeAStroll": "Take A Stroll",
+    "secretPlaceTour": "Secret Place Tour",
+    "foreignFreeTravel": "Foreign Free Travel"
   },
   "topicCard": {
     "title": "Topic For Dummies"

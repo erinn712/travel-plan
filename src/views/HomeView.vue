@@ -10,7 +10,7 @@
       <!-- 主題懶人包 -->
       <TopicCards />
       <!-- 熱門景點 -->
-      <PlacesCards />
+      <PlacesCards :data="getPlacesApi"/>
       <!-- 推薦行程 -->
       <RecommendCards />
     </v-main>
@@ -26,6 +26,7 @@ import TopicCards from "@/components/topicCards/index.vue";
 import PlacesCards from "@/components/placesCards/index.vue";
 import RecommendCards from "@/components/recommendCards/index.vue";
 import Footer from "@/components/footer/index.vue";
+import { getPlacesApi } from "@/api/module/home/index.js";
 
 export default {
   name: "HomeView",
@@ -36,6 +37,11 @@ export default {
     PlacesCards,
     RecommendCards,
     Footer,
+  },
+  setup () {
+    return {
+      getPlacesApi,
+    };
   },
 };
 </script>
