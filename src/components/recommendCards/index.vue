@@ -3,7 +3,7 @@
       <h2>{{t("recommendCards.title")}}</h2>
       <v-row dense>
         <v-col
-          v-for="card in recommendCards"
+          v-for="card in data"
           :key="card.title"
           :cols="card.flex"
         >
@@ -24,36 +24,18 @@
 </template>
 
 <script>
-import { ref, watch } from "vue";
+import { watch } from "vue";
 import { useI18n } from "vue-i18n";
 
 export default {
   name: "RecommendCards",
+  props: {
+    data: {
+      type: Array,
+      default: () => []
+    }
+  },
   setup () {
-    const recommendCards = ref([
-      {
-        title: "日本兵庫",
-        subtitle: "赤穗溫泉、銀波莊、姬路城的日歸溫泉旅行",
-        img: "https://img.poibank.com/mclYiCsd3QZ0ZqCWFNFf0wnCGXY=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvMTExODcxLzg5OWYyOGVkLWVmMmUtNDE2Ny1iZWQ1LWM1Nzg5NmZkNGFkMCJ9LHsicmVzaXplIjp7IndpZHRoIjoiODAwIn19XQ==",
-        href: "",
-        flex: 4,
-      },
-      {
-        title: "蘭嶼",
-        subtitle: "四天三夜瘋狂潛水",
-        img: "https://img.poibank.com/8_nn4T0i26MxI9FLQHTzUytXkxY=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvMTc0NjAvM2RjODhmYmQtOTE3NS00MzkwLTliNzgtOWM0NGMwZjc3ZWQ2In0seyJyZXNpemUiOnsid2lkdGgiOiI4MDAifX1d",
-        href: "",
-        flex: 4,
-      },
-      {
-        title: "韓國 統營、巨濟島",
-        subtitle: "釜山近郊秘境 探索自然之美",
-        img: "https://img.poibank.com/KiYnozQqcGqD8499hwGfde_l6fI=/W3siZm9ybWF0Ijoid2VicCJ9LHsia2V5Ijoiam91cm5hbHMvNzgxNjMvMGY5MWVmZmQtZWJjYy00MDQwLWFlNDUtNzEyYThjYWNlZDcwIn0seyJyZXNpemUiOnsid2lkdGgiOiI4MDAifX1d",
-        href: "",
-        flex: 4,
-      },
-    ]);
-
     const { t, locale } = useI18n();
 
     watch(locale, (newlocale) => {
@@ -61,7 +43,6 @@ export default {
     });
 
     return {
-      recommendCards,
       t,
       locale
     }

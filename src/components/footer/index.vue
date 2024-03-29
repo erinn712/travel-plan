@@ -20,7 +20,7 @@
         Mauris cursus commodo interdum.
       </div>
       <!-- divider無作用 -->
-      <v-divider class="border-opacity-25"></v-divider>
+      <v-divider class="border-opacity-50"></v-divider>
       <div>{{ new Date().getFullYear() }} — <strong>愛玩樂</strong></div>
       <v-row>
         <v-btn

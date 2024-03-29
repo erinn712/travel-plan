@@ -5,14 +5,14 @@
     <v-main>
       <!-- carousel -->
       <v-container>
-        <Carousel />
+        <Carousel :data="Slides"/>
       </v-container>
       <!-- 主題懶人包 -->
-      <TopicCards />
+      <TopicCards :data="TopicCards"/>
       <!-- 熱門景點 -->
-      <PlacesCards :data="getPlacesApi"/>
+      <PlacesCards :data="PlacesCards"/>
       <!-- 推薦行程 -->
-      <RecommendCards />
+      <RecommendCards :data="RecommendCards"/>
     </v-main>
     <!-- footer -->
     <Footer />
@@ -26,7 +26,8 @@ import TopicCards from "@/components/topicCards/index.vue";
 import PlacesCards from "@/components/placesCards/index.vue";
 import RecommendCards from "@/components/recommendCards/index.vue";
 import Footer from "@/components/footer/index.vue";
-import { getPlacesApi } from "@/api/module/home/index.js";
+import { ref } from "vue";
+import { homeApi } from "@/api/module/home/index.js";
 
 export default {
   name: "HomeView",
@@ -39,9 +40,31 @@ export default {
     Footer,
   },
   setup () {
-    return {
-      getPlacesApi,
+    const Slides = ref([])
+    const getSlidesApi = async () => {
+      const { data } = await homeApi.getSlidesApi();
+      Slides.value = data;
+    }
+    const TopicCards = ref([])
+    const getTopicCardsApi = async () => {
+      const { data } = await homeApi.getTopicCardsApi();
+      TopicCards.value = data;
+    }
+    const PlacesCards = ref([]);
+    const getPlacesApi = async () => {
+      const { data } = await homeApi.getPlacesApi();
+      PlacesCards.value = data;
     };
+    const RecommendCards = ref([])
+    const getRecommendCardsApi = async () => {
+      const { data } = await homeApi.getRecommendCardsApi();
+      RecommendCards.value = data;
+    }
+    getSlidesApi();
+    getTopicCardsApi()
+    getPlacesApi();
+    getRecommendCardsApi()
+    return { Slides, TopicCards, PlacesCards, RecommendCards };
   },
 };
 </script>
