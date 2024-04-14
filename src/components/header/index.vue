@@ -32,9 +32,10 @@
       </v-list>
     </v-menu>
 
-    <v-app-bar-title>
+    <v-app-bar-title @click="homePage" class="cursor-pointer">
       <v-icon icon="mdi-airplane"></v-icon>
-      {{ t("header.title") }}</v-app-bar-title
+      {{ t("header.title") }}
+      </v-app-bar-title
     >
     <template v-slot:append>
       <v-btn> {{ t("header.myFollowing") }} </v-btn>
@@ -116,13 +117,15 @@
           >
             <v-card class="text-center pa-10" variant="elevated" hover>
               <v-card-item d-flex>
-                    <div class="text-overline mb-1"> {{ t("collection.category") }} </div>
-                    <div class="text-h6 mb-1">
-                      {{ t("collection.article") }}
-                    </div>
-                    <div class="text-caption">
-                      {{ t("collection.intro") }}
-                    </div>
+                <div class="text-overline mb-1">
+                  {{ t("collection.category") }}
+                </div>
+                <div class="text-h6 mb-1">
+                  {{ t("collection.article") }}
+                </div>
+                <div class="text-caption">
+                  {{ t("collection.intro") }}
+                </div>
               </v-card-item>
 
               <v-card-actions>
@@ -158,58 +161,53 @@
   </v-app-bar>
 </template>
 
-<script>
-import { reactive, ref, watch } from "vue";
+<script setup>
+import { reactive, watch } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 
-export default {
-  name: "HeaderMenu",
-  setup () {
-    const { t, locale } = useI18n();
-    const exploreList = reactive([
-      {
-        title: t("cityMenu.title"),
-        subtitle: [
-          ["台南", "mdi-account-multiple-outline"],
-          ["花蓮", "mdi-cog-outline"],
-          ["首爾", "mdi-cog-outline"],
-          ["東京", "mdi-cog-outline"],
-          ["曼谷", "mdi-cog-outline"],
-        ],
-      },
-      {
-        title: "推薦行程",
-        subtitle: [
-          ["一日輕旅行", "mdi-account-multiple-outline"],
-          ["三天兩夜深度遊", "mdi-cog-outline"],
-          ["國外旅遊", "mdi-cog-outline"],
-        ],
-      },
-      {
-        title: t("topicMenu.title"),
-        subtitle: [
-          ["必吃美食", "mdi-account-multiple-outline"],
-          ["IG打卡景點", "mdi-cog-outline"],
-          ["悠遊散策", "mdi-cog-outline"],
-          ["秘境攻略", "mdi-cog-outline"],
-          ["國外自由行", "mdi-cog-outline"],
-        ],
-      },
-    ]);
-
-    const dialog = ref(false);
-
-    watch(locale, (newlocale) => {
-      localStorage.setItem("locale", newlocale);
-    });
-    return {
-      exploreList,
-      dialog,
-      t,
-      locale,
-    };
+const router = useRouter
+const homePage = () => {
+  router.push({ path: "/home" })
+  console.log('homePage')
+}
+const { t, locale } = useI18n();
+const exploreList = reactive([
+  {
+    title: t("cityMenu.title"),
+    subtitle: [
+      ["台南", "mdi-account-multiple-outline"],
+      ["花蓮", "mdi-cog-outline"],
+      ["首爾", "mdi-cog-outline"],
+      ["東京", "mdi-cog-outline"],
+      ["曼谷", "mdi-cog-outline"],
+    ],
   },
-};
+  {
+    title: "推薦行程",
+    subtitle: [
+      ["一日輕旅行", "mdi-account-multiple-outline"],
+      ["三天兩夜深度遊", "mdi-cog-outline"],
+      ["國外旅遊", "mdi-cog-outline"],
+    ],
+  },
+  {
+    title: t("topicMenu.title"),
+    subtitle: [
+      ["必吃美食", "mdi-account-multiple-outline"],
+      ["IG打卡景點", "mdi-cog-outline"],
+      ["悠遊散策", "mdi-cog-outline"],
+      ["秘境攻略", "mdi-cog-outline"],
+      ["國外自由行", "mdi-cog-outline"],
+    ],
+  },
+]);
+
+// const dialog = ref(false);
+
+watch(locale, (newlocale) => {
+  localStorage.setItem("locale", newlocale);
+});
 </script>
 
 <style>
