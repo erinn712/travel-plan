@@ -5,8 +5,8 @@
           cycle
           hide-delimiter-background
         >
-          <v-carousel-item v-for="(slide, i) in data" :key="i">
-            <a :href="slide.link" style="text-decoration: none">
+          <v-carousel-item v-for="(slide, i) in data" :key="i" @click="goToCategory(1)">
+            <a style="text-decoration: none">
               <v-img
                 :src="slide.image"
                 class="d-flex fill-height justify-center align-end"
@@ -25,6 +25,7 @@
 <script>
 import { watch } from "vue";
 import { useI18n } from "vue-i18n";
+import { useRouter } from "vue-router";
 
 export default {
   name: "Carousel",
@@ -35,6 +36,10 @@ export default {
     }
   },
   setup () {
+    const router = useRouter()
+    const goToCategory = (id) => {
+      router.push(`/category/${id}`)
+    }
     const { t, locale } = useI18n();
     watch(locale, (newlocale) => {
       localStorage.setItem("locale", newlocale);
@@ -42,6 +47,7 @@ export default {
     return {
       t,
       locale,
+      goToCategory
     };
   }
 }

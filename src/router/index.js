@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import { createRouter, createWebHashHistory } from "vue-router";
+import HomeView from "../views/HomeView.vue";
 
 const routes = [
   {
@@ -22,6 +22,16 @@ const routes = [
     component: () => import("../views/UserPage.vue"),
   },
   {
+    path: "/explore",
+    name: "explore",
+    component: () => import("../views/Explore.vue"),
+  },
+  {
+    path: "/category/:id",
+    name: "category",
+    component: () => import("../views/Category.vue"),
+  },
+  {
     // path: '/about',
     // name: 'about',
     // route level code-splitting
@@ -33,7 +43,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

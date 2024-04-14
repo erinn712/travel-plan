@@ -43,5 +43,15 @@
     "signUp": "Sign UP",
     "username": "Username",
     "password": "Password"
+  },
+  "collection": {
+    "title": "My Collection",
+    "category": "category",
+    "article": "Article",
+    "intro": "Introduction",
+    "read": "Read",
+    "delete": "Delete",
+    "close": "Close"
   }
 }
+

@@ -97,8 +97,51 @@
         <option value="zh-TW">中文</option>
         <option value="en-US">English</option>
       </select>
+
       <!-- 收藏 -->
-      <v-btn icon="mdi-heart" color="red-accent-2"></v-btn>
+      <v-dialog max-width="800" transition="dialog-top-transition">
+        <template v-slot:activator="{ props: activatorProps }">
+          <v-btn
+            v-bind="activatorProps"
+            icon="mdi-heart"
+            color="red-accent-2"
+          ></v-btn>
+        </template>
+        <!-- 收藏表單 -->
+        <template v-slot:default="{ isActive }">
+          <v-card
+            class="text-center pa-10"
+            color="grey-lighten-5"
+            :title="t('collection.title')"
+          >
+            <v-card class="text-center pa-10" variant="elevated" hover>
+              <v-card-item d-flex>
+                    <div class="text-overline mb-1"> {{ t("collection.category") }} </div>
+                    <div class="text-h6 mb-1">
+                      {{ t("collection.article") }}
+                    </div>
+                    <div class="text-caption">
+                      {{ t("collection.intro") }}
+                    </div>
+              </v-card-item>
+
+              <v-card-actions>
+                <v-btn variant="outlined"> {{ t("collection.read") }} </v-btn>
+                <v-btn variant="outlined"> {{ t("collection.delete") }} </v-btn>
+              </v-card-actions>
+            </v-card>
+            <v-card-actions>
+              <v-btn
+                class="mx-auto"
+                variant="outlined"
+                type="submit"
+                @click="isActive.value = false"
+                >{{ t("collection.close") }}</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+        </template>
+      </v-dialog>
       <!-- 搜尋框 -->
       <v-text-field
         v-model="search"

@@ -71,13 +71,6 @@ export default {
 
 <style>
 /* Optional: Makes the sample page fill the window. */
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 /* 無作用 */
 /* .mx-w-500 {
   max-width: 500px;

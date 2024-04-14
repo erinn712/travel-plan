@@ -6,6 +6,7 @@ import slides from "./slides.json";
 import placesCards from "./placesCards.json";
 import topicCards from "./topicCards.json";
 import recommendCards from "./recommendCards.json";
+import pages from "./pages.json";
 
 // import token from "./login.json";
 
@@ -27,6 +28,11 @@ Mock.mock("/mock/topicCards", {
 Mock.mock("/mock/recommendCards", {
   code: 200,
   data: recommendCards,
+});
+
+Mock.mock("/mock/pages", {
+  code: 200,
+  data: pages,
 });
 
 // Mock.mock("/mock/login", {

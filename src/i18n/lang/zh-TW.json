@@ -43,5 +43,14 @@
     "signUp": "註冊",
     "username": "帳號",
     "password": "密碼"
+  },
+  "collection": {
+    "title": "我的收藏",
+    "category": "分類",
+    "article": "文章標題",
+    "intro": "文章介紹",
+    "read": "查看",
+    "delete": "刪除",
+    "close": "關閉"
   }
 }
