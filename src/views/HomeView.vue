@@ -4,15 +4,22 @@
     <HeaderMenu />
     <v-main>
       <!-- carousel -->
-      <v-container>
-        <Carousel :data="Slides"/>
+      <v-container class="mx-auto" max-width="500">
+        <Carousel :data="Slides" />
+        <!-- <Carousel :data="Slides"/> -->
       </v-container>
       <!-- 主題懶人包 -->
-      <TopicCards :data="TopicCards"/>
+      <v-container class="mx-auto" max-width="500">
+        <TopicCards :data="TopicCards" />
+      </v-container>
       <!-- 熱門景點 -->
-      <PlacesCards :data="PlacesCards"/>
+      <v-container class="mx-auto" max-width="500">
+        <PlacesCards :data="PlacesCards" />
+      </v-container>
       <!-- 推薦行程 -->
-      <RecommendCards :data="RecommendCards"/>
+      <v-container class="mx-auto" max-width="500">
+        <RecommendCards :data="RecommendCards" />
+      </v-container>
     </v-main>
     <!-- footer -->
     <Footer />
@@ -40,30 +47,30 @@ export default {
     Footer,
   },
   setup () {
-    const Slides = ref([])
+    const Slides = ref([]);
     const getSlidesApi = async () => {
       const { data } = await homeApi.getSlidesApi();
       Slides.value = data;
-    }
-    const TopicCards = ref([])
+    };
+    const TopicCards = ref([]);
     const getTopicCardsApi = async () => {
       const { data } = await homeApi.getTopicCardsApi();
       TopicCards.value = data;
-    }
+    };
     const PlacesCards = ref([]);
     const getPlacesApi = async () => {
       const { data } = await homeApi.getPlacesApi();
       PlacesCards.value = data;
     };
-    const RecommendCards = ref([])
+    const RecommendCards = ref([]);
     const getRecommendCardsApi = async () => {
       const { data } = await homeApi.getRecommendCardsApi();
       RecommendCards.value = data;
-    }
+    };
     getSlidesApi();
-    getTopicCardsApi()
+    getTopicCardsApi();
     getPlacesApi();
-    getRecommendCardsApi()
+    getRecommendCardsApi();
     return { Slides, TopicCards, PlacesCards, RecommendCards };
   },
 };

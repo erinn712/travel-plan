@@ -1,5 +1,4 @@
 <template>
-  <v-container class="mx-auto" max-width="500">
     <h2>{{ t("topicCard.title") }}</h2>
     <v-row dense>
       <v-col v-for="card in data" :key="card.title" :cols="card.flex">
@@ -18,7 +17,6 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
 </template>
 
 <script>

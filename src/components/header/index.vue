@@ -166,9 +166,10 @@ import { reactive, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
-const router = useRouter
+const router = useRouter()
 const homePage = () => {
-  router.push({ path: "/home" })
+  // router.push({ path: "/home" })
+  router.push("/home")
   console.log('homePage')
 }
 const { t, locale } = useI18n();
